@@ -11,16 +11,14 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace TeddyBot
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args) => new Program().RunBotAsync().GetAwaiter().GetResult();
-        
 
         private DiscordSocketClient _client;
         private CommandService _commands;
         private IServiceProvider _services;
 
-       
         public async Task RunBotAsync()
         {
             _client = new DiscordSocketClient();
@@ -31,7 +29,7 @@ namespace TeddyBot
                 .AddSingleton(_commands)
                 .BuildServiceProvider();
 
-            string token = "OTc1MzkxMzUxNjk0ODI3NjIw.GQx4jA.JTT0KLQd65sZFrO2r7M334byf7gxDxE232fyuU";
+            string token = "OTc1MzkxMzUxNjk0ODI3NjIw.GevHiK.P4AStAgQtVkQLlSbK91YUsqODy_xcdG-eaYqR8";
 
             _client.Log += _client_Log;
 
@@ -42,7 +40,7 @@ namespace TeddyBot
             await _client.StartAsync();
 
             await Task.Delay(-1);
-            
+
         }
 
         private Task _client_Log(LogMessage arg)
